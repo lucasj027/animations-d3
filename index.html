@@ -37,9 +37,9 @@
 		<div class="card">
 			<h1>Exemplo Attr</h1>
 			<svg width="720" height="120">
-			  <circle cx="40" cy="60" r="30"></circle>
-			  <circle cx="80" cy="60" r="30"></circle>
-			  <circle cx="120" cy="60" r="30"></circle>
+			  <circle cx="40" cy="60" r="30" fill="red"></circle>
+			  <circle cx="80" cy="60" r="30" fill="yellow"></circle>
+			  <circle cx="120" cy="60" r="30" fill="green"></circle>
 			</svg> <br>
 			<button onclick="Mover()">Botão</button>
 			<small>Aperte o botão para mover os Circulos</small>
@@ -51,10 +51,9 @@
 		}
 
 		var circle = d3.selectAll("circle");
-		circle.style("fill", "steelblue");
 
 		function Mover(){					
-			circle.attr("cx", function() { return Math.random() * 720; });
+			circle.transition().duration(2000).attr("cx", function() { return Math.random() * 720; });
 		}
 	</script>
 </body>
