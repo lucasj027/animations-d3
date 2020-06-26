@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;;
+		}
+		p {
+			margin: 10px 0;
+		}
+		.container {
+			width: 65%;
+			margin: 20px auto;
+		}
+		.card {
+			box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+			margin: 20px 0;
+			padding: 20px;
+		}
+		button {
+			padding: 5px;
+		}
+	</style>
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<h1>Exemplo de Transtion e Duration</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum error illum numquam animi obcaecati modi nam sapiente, iure dicta laboriosam, expedita ipsum cupiditate iste eligendi laborum. Enim, minus quisquam in fuga. Harum tenetur deleniti vel maiores, omnis, ipsam nesciunt ut, accusamus molestiae ex sed vitae totam impedit delectus eveniet sapiente.</p>
+			<button onclick="ChangeColor()">Mudar a Cor</button>
+			<small>Mudar a cor para do paragrafo para Azul.</small>
+		</div>
+		<div class="card">
+			<h1>Exemplo Attr</h1>
+			<svg width="720" height="120">
+			  <circle cx="40" cy="60" r="30"></circle>
+			  <circle cx="80" cy="60" r="30"></circle>
+			  <circle cx="120" cy="60" r="30"></circle>
+			</svg> <br>
+			<button onclick="Mover()">Botão</button>
+			<small>Aperte o botão para mover os Circulos</small>
+		</div>
+	</div>
+	<script>
+		function ChangeColor(){
+			d3.select("p").transition().duration(750).style("color", "blue");
+		}
+
+		var circle = d3.selectAll("circle");
+		circle.style("fill", "steelblue");
+
+		function Mover(){					
+			circle.attr("cx", function() { return Math.random() * 720; });
+		}
+	</script>
+</body>
+</html>
